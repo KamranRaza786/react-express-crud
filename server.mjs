@@ -33,7 +33,7 @@ await pinecone.init({
 
 const app = express();
 app.use(express.json());
-app.use(cors(["http://localhost:3000", "127.0.0.1", "https://ewrer234234.appspot.app.com"]));
+app.use(cors([]));
 
 app.use(morgan('combined'));
 
@@ -247,7 +247,7 @@ app.get(express.static(path.join(__dirname, "./web/build")));
 app.use("/", express.static(path.join(__dirname, "./web/build")));
 
 // /Users/malik/Desktop/_CLASS/SMIT-chatbot-b3/04. nodejs/2. crud operation
-app.use('/static', express.static(path.join(__dirname, 'static')))
+// app.use('/static', express.static(path.join(__dirname, 'static')))
 
 
 app.use((req, res) => {
@@ -255,24 +255,7 @@ app.use((req, res) => {
 })
 
 
-// const port = process.env.PORT || 5001;
-// app.listen(port, () => {
-//   console.log(`Example app listening on port ${port}`);
-// });
-
-// const express = require('express');
-// const path = require('path');
-// const app = express();
-// const port = process.env.PORT || 3000;
-
-// // Serve React app's build files
-// app.use(express.static(path.join(__dirname, 'build')));
-
-// // All other routes should point to the React app
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
-
-// app.listen(port, () => {
-//   console.log(`Server is running on port ${port}`);
-// });
+const port = process.env.PORT || 5001;
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
